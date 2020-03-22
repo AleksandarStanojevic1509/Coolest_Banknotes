@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>World's Coolest Banknotes</title>
+    <link href="https://fonts.googleapis.com/css?family=Baloo+Chettan+2&display=swap"rel="stylesheet"/>
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://www.gstatic.com/firebasejs/7.11.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.11.0/firebase-firestore.js"></script>
+  </head>
+
+  <body>
+
+    <div id="main">
+  
+    <header>
+      <h1>World's Coolest Banknotes</h1>
+    </header>
+  
+    <form action="">
+      <div class="container">        
+          <input type="text" name="currencyType" id="cType" placeholder="Currency type :" />
+          
+          <input class="numb_field right" type="text" name="currencyValue" id="cValue" placeholder="Currency value :"/>
+  
+          <input class="numb_field right" type="text" name="useBy" id="useBy" placeholder="Use By:"/>
+      
+          <input type="text" name="imageUrl" id="imageUrl" placeholder="Copy / paste image URL :" />
+      
+          <input class="numb_field right" type="text" name="releaseYear" id="cYear" placeholder="Release year :"/>
+
+          <input type="text" name="moreInfo" id="moreInfo" placeholder="More info ( e.g. copy / paste wikipedia URL... )"/>
+      
+  
+        <div id="btn">
+          <input id="btn_input" type="submit" value="Save it" />
+        </div>
+      </div>
+      
+    </form>
+  
+    <ul>
+      
+    </ul>
+
+    <div class="modal">
+      <div id="pop-up-modal">
+        <h5>Do you want to delete it?</h5>
+        <div>
+          <button id="cancel">Cancel</button>
+          <button id="yes">Yes</button>
+        </div>
+      </div>
+    </div> 
+  </div>
+  
+
+<script>
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyD_8Ift56ljD5N3IUdpzgA9ok5GK-ARg_Y",
+    authDomain: "aleksandarbaza.firebaseapp.com",
+    databaseURL: "https://aleksandarbaza.firebaseio.com",
+    projectId: "aleksandarbaza",
+    storageBucket: "aleksandarbaza.appspot.com",
+    messagingSenderId: "806724726809",
+    appId: "1:806724726809:web:f79f6d4eeda8f9fbd97a88"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  let db = firebase.firestore();
+  
+</script>
+    <script src="script.js"></script>
+  </body>
+</html>
