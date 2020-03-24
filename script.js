@@ -9,6 +9,8 @@ let regExYear = /^[0-9]{0,5}$/;
 let regExValue = /^[0-9]{1,20}$/;
 let regExp = /^[a-zA-Z0-9]{1,40}$/;
 
+console.log(db.collection('coolest_banknotes'))
+
 let banknoteListRender = doc => {
   let listElement = document.createElement("li");
   let divForParagraphs = document.createElement ("div")
@@ -18,6 +20,8 @@ let banknoteListRender = doc => {
   let infoParagraph3 = document.createElement("p");
   let del_btn = document.createElement("span");
   let space = "&nbsp &nbsp"
+
+  console.log(doc.id)
 
   listElement.setAttribute("data-id", doc.id);
   divForParagraphs.setAttribute("id", "info_paragraph");
@@ -37,14 +41,20 @@ let banknoteListRender = doc => {
   divForParagraphs.appendChild(infoParagraph2);
   divForParagraphs.appendChild(infoParagraph3);
 
+
+  // Preko html-a brise elemenat liste iz baze
+
   del_btn.addEventListener("click", e => {
     e.stopPropagation();
-    let id = e.target.parentElement.getAttribute("data-id");
+    
+    window.scrollTo(0, 0)
+    let id = e.target.parentElement.parentElement.getAttribute("data-id");
+    
 
     if ((modal.style.display = "none")) {
       modal.style.display = "block";
       yes.addEventListener("click", () => {
-        db.collection("world_coolest_banknotes")
+        db.collection("coolest_banknotes")
           .doc(id)
           .delete();
         modal.style.display = "none";
@@ -56,15 +66,21 @@ let banknoteListRender = doc => {
   });
 };
 
+// db.collection('coolest_banknotes').get()
+// .then(e=>{
+//   e.docs.forEach(doc=>{
+//     console.log(doc.data())
+//   })
+// })
 
-// Slusa promenu stanja u bazi, i updatuje aplikaciju (brise listu ukoliko je ona izvrisana iz baze)
-
-db.collection("world_coolest_banknotes")
-  .orderBy("currencyType")
-  .onSnapshot(snapshop => {
-    let chages = snapshop.docChanges();
-    chages.forEach(change => {
-      if (change.type == "added") {
+// Slusa promenu stanja u bazi, i updatuje aplikaciju (brise listu ukoliko je ona izbrisana iz baze)
+db.collection("coolest_banknotes")
+.orderBy("currencyType")
+.onSnapshot(snapshop => {
+  let chages = snapshop.docChanges();
+  chages.forEach(change => {
+    console.log(change)
+    if (change.type == "added") {
         banknoteListRender(change.doc);
       } else if (change.type == "removed") {
         let li = banknoteList.querySelector(`[data-id=${change.doc.id}]`);
@@ -90,7 +106,7 @@ form.addEventListener("submit", e => {
       "You need to fill form, curency value must be number, year must be four digits number!!!"
     );
   } else {
-    db.collection("world_coolest_banknotes").add({
+    db.collection("coolest_banknotes").add({
       currencyType: form.currencyType.value,
       currencyValue: parseInt(form.currencyValue.value),
       releaseYear: parseInt(form.releaseYear.value),

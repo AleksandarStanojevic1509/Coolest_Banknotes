@@ -6,8 +6,8 @@
     <title>World's Coolest Banknotes</title>
     <link href="https://fonts.googleapis.com/css?family=Baloo+Chettan+2&display=swap"rel="stylesheet"/>
     <link rel="stylesheet" href="style.css" />
-    <script src="https://www.gstatic.com/firebasejs/7.11.0/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/7.11.0/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.12.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.12.0/firebase-firestore.js"></script>
   </head>
 
   <body>
@@ -20,17 +20,17 @@
   
     <form action="">
       <div class="container">        
-          <input type="text" name="currencyType" id="cType" placeholder="Currency type :" />
+          <input type="text" name="currencyType" id="cType" placeholder="Type :" />
           
-          <input class="numb_field right" type="text" name="currencyValue" id="cValue" placeholder="Currency value :"/>
+          <input class="numb_field right" type="text" name="currencyValue" id="cValue" placeholder="Value :"/>
   
           <input class="numb_field right" type="text" name="useBy" id="useBy" placeholder="Use By:"/>
       
           <input type="text" name="imageUrl" id="imageUrl" placeholder="Copy / paste image URL :" />
       
-          <input class="numb_field right" type="text" name="releaseYear" id="cYear" placeholder="Release year :"/>
+          <input class="numb_field right" type="text" name="releaseYear" id="cYear" placeholder="Issued :"/>
 
-          <input type="text" name="moreInfo" id="moreInfo" placeholder="More info ( e.g. copy / paste info URL... )"/>
+          <input type="text" name="moreInfo" id="moreInfo" placeholder="Copy / paste info URL: "/>
       
   
         <div id="btn">
@@ -56,20 +56,21 @@
   </div>
   
 
-<script>
-  // Your web app's Firebase configuration
-  var firebaseConfig = {
-    apiKey: "AIzaSyD_8Ift56ljD5N3IUdpzgA9ok5GK-ARg_Y",
-    authDomain: "aleksandarbaza.firebaseapp.com",
-    databaseURL: "https://aleksandarbaza.firebaseio.com",
-    projectId: "aleksandarbaza",
-    storageBucket: "aleksandarbaza.appspot.com",
-    messagingSenderId: "806724726809",
-    appId: "1:806724726809:web:f79f6d4eeda8f9fbd97a88"
+  <script>
+    // Your web app's Firebase configuration
+    var firebaseConfig = {
+    apiKey: "AIzaSyACFTIelmTzq44VLYzXYwsRMhQYNv7YNgg",
+    authDomain: "coolest-banknotes.firebaseapp.com",
+    databaseURL: "https://coolest-banknotes.firebaseio.com",
+    projectId: "coolest-banknotes",
+    storageBucket: "coolest-banknotes.appspot.com",
+    messagingSenderId: "539346425176",
+    appId: "1:539346425176:web:f55b396d6238d3c257c12d"
   };
-  // Initialize Firebase
-  firebase.initializeApp(firebaseConfig);
-  let db = firebase.firestore();
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    const db = firebase.firestore();
+  </script>
   
 </script>
     <script src="script.js"></script>

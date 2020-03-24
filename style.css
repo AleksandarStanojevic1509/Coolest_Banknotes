@@ -129,7 +129,7 @@ img{
   top: 0;
   right: 0;
   width: 100%;
-  height: 100vh;
+  height: 100%;
   display: none;
 }
 
@@ -185,5 +185,10 @@ img{
   }
   h1{
     font-size: 2.5em;
+  }
+  #pop-up-modal {
+    width: 50%;
+    right: 26%;
+  
   }
 }
