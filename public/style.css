@@ -94,7 +94,7 @@ li {
 
 img{
   grid-column: 1/4;
-  height: 150px;
+  width: 80%;
   margin: auto;
 }
 
@@ -162,4 +162,28 @@ img{
   background-color: rgb(255, 251, 0);
   border: none;
   border-radius: 10px;
+}
+
+@media only screen and (max-width: 800px) {
+  #info_paragraph{
+    margin-top: 10px;
+    grid-column:1/13;
+  }
+  
+  img{
+    grid-column: 1/13;
+    width: 80%;
+  }
+}
+
+@media only screen and (max-width: 650px) {
+  .container{
+    width: 98%;
+  }
+  li{
+    width: 98%;
+  }
+  h1{
+    font-size: 2.5em;
+  }
 }
