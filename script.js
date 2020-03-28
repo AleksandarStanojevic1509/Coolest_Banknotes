@@ -20,9 +20,7 @@ let banknoteListRender = doc => {
   let infoParagraph3 = document.createElement("p");
   let del_btn = document.createElement("span");
   let space = "&nbsp &nbsp"
-
-  console.log(doc.id)
-
+  
   listElement.setAttribute("data-id", doc.id);
   divForParagraphs.setAttribute("id", "info_paragraph");
   img.setAttribute("src",`${doc.data().imageUrl}`)
@@ -45,11 +43,9 @@ let banknoteListRender = doc => {
   // Preko html-a brise elemenat liste iz baze
 
   del_btn.addEventListener("click", e => {
-    e.stopPropagation();
-    
+    e.stopPropagation();    
     window.scrollTo(0, 0)
     let id = e.target.parentElement.parentElement.getAttribute("data-id");
-    
 
     if ((modal.style.display = "none")) {
       modal.style.display = "block";
